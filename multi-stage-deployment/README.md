@@ -78,7 +78,7 @@ releases:
 ```yaml
 # values.yaml
 image:
-  repository: your-registry/hello-nginx
+  repository: gonzag077/hello-nginx
   tag: latest
 
 env:
