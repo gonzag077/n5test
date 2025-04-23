@@ -1,0 +1,7 @@
+image:
+  repository: ghcr.io/gonza/hello-nginx
+  tag: latest
+
+env:
+  environment: dev
+  secretValue: ""

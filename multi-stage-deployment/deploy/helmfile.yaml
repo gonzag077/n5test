@@ -1,0 +1,20 @@
+repositories:
+  - name: local
+    url: file://./charts
+
+environments:
+  dev:
+    values:
+      - environments/dev.yaml
+      - secrets/dev-secrets.yaml.dec
+  stage:
+    values:
+      - environments/stage.yaml
+      - secrets/stage-secrets.yaml.dec
+
+releases:
+  - name: hello-nginx
+    namespace: default
+    chart: local/hello-nginx
+    values:
+      - values.yaml

@@ -1,0 +1,25 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: hello-nginx
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: hello-nginx
+  template:
+    metadata:
+      labels:
+        app: hello-nginx
+    spec:
+      containers:
+        - name: hello
+          image: "{{ .Values.image.repository }}:{{ .Values.image.tag }}"
+          env:
+            - name: ENVIRONMENT
+              value: "{{ .Values.env.environment }}"
+            - name: SECRET_VALUE
+              valueFrom:
+                secretKeyRef:
+                  name: app-secret
+                  key: secretValue
